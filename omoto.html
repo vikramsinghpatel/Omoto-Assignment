@@ -1,0 +1,195 @@
+<!DOCTYPE HTML">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <title>Omoto</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+   $(function() {  
+   $("#bars li .bar").each( function( key, bar ) {    
+   var percentage = $(this).data('percentage')*3;        
+   $(this).animate({   'height' : percentage + '%'    }, 1000);  });});
+    </script>
+	<style>
+	body { margin:0; padding:0;font-family: HelveticaNeue;color: #9c9c9c;background-color:#ecede8}
+.clear-div { clear: both; } 
+img { border: none;} 
+#wrapper { width: 90%; margin: 0 auto;background-color:#ecede8}
+#logo img {float: left;margin:10px 0 0 20px;}
+#logo span {position: relative;top: 20px;left: 10px;font-size: 26px;}
+#navbar{float:right;}
+#navbar ul{list-style:none;margin-right:20px;margin-top:0px;}
+#navbar ul li {float:left;margin-left:20px;}
+#issues-section{width:100%;margin-top:50px;}
+#issues-section ul{list-style:none;margin-left:30px;}
+#issues-section ul li {float:left;margin-left:190px;}
+#issues-section ul li div{
+  height: 80px;
+  width: 80px;
+  transform: rotate(45deg);
+  border-radius: 20px;
+  }
+  .verticaltext{
+  position: absolute;
+  text-align:center;
+  color: #fff;
+  font-size: 46px;
+  top: 50%;
+  left: 50%;
+  transform: rotate(-45deg) translateX(-50%) translateY(-50%);
+  transform-origin: left top;
+}
+.issuestext{
+	margin-top:10px;
+	margin-left:-10px;
+	font-size:20px;
+}
+ /* css bar graph */
+ #chart {
+  width: 450px;
+  height: 300px;
+  margin: 50px auto 0;
+  display: block;
+}
+#chart p{font-size:20px;text-align:center;}
+#chart #numbers {
+  width: 50px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  float: left;
+}
+#chart #numbers li {
+  text-align: right;
+  padding-right: 1em;
+  list-style: none;
+  height: 50px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  bottom: 0px;
+}
+#chart #numbers li:last-child {
+  height: 0px;
+}
+#chart #numbers li span {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+#chart #bars {
+  display: inline-block;
+  width: 400px;
+  height: 300px;
+  padding: 0;
+  margin: 0;
+}
+#chart #bars li {
+  display: table-cell;
+  width: 100px;
+  height: 300px;
+  margin: 0;
+  text-align: center;
+  position: relative;
+}
+#chart #bars li .bar {
+  display: block;
+  width: 40px;
+  margin-left: 40px;
+  background: #fc808e;
+  position: absolute;
+  bottom: 30px;
+}
+#chart #bars li .bar:hover {
+  background: #fc808e;
+  cursor: pointer;
+}
+#chart #bars li .bar:hover:before {
+  position: relative;
+  bottom: 20px;
+}
+#chart #bars li span {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  text-align: center;
+  margin-left:15px;
+  font-size:12px;
+}
+
+/* ----------- footer dot nav ---------*/
+#footer-section{
+  width: 150px;
+  height: 50px;
+  margin: 50px auto 0;
+  display: block;
+}
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  border:2px solid #fc808e;
+  margin:5px;
+}
+.activated{background-color:#fc808e}
+	</style>
+</head>
+<body onload="draw()">
+<div id="wrapper"> 
+
+<div id="header"> 
+ <div id="logo">
+ <img src="oval-17-oval-17-copy-7.png" alt="logo">
+  <span>Omoto</span>
+ </div> 
+ <div id="navbar">
+ <ul>
+ <li><img src="house-58.png"/></li>
+ <li><img src="help-9.png"/></li>
+ <li><img src="notifications.png"/></li>
+ <li><img src="menu.png"/></li>
+ </ul>
+ </div>
+ <div class="clear-div"></div> 
+ </div> 
+ 
+<div id="issues-section">
+<ul>
+<li><div style="background-color:#fc808e;"><span class="verticaltext">48</span></div></br><span class="issuestext">Issues Open</span></li>
+<li><div style="background-color:#779ec9;"><span class="verticaltext">25</span></div></br><span class="issuestext">Issues WIP</span></li>
+<li><div style="background-color:#75bab9;"><span class="verticaltext">16</span></div></br><span class="issuestext">Issues Resolved</span></li>
+</ul>
+<div class="clear-div"></div> 
+</div>
+<div id="chart">
+<p>Open Issues By Departments</p>
+  <ul id="numbers">
+    <li><span>25</span></li>
+    <li><span>20</span></li>
+    <li><span>15</span></li>
+    <li><span>10</span></li>
+    <li><span>5</span></li>
+    <li><span></span></li>
+  </ul>
+  
+  <ul id="bars">
+    <li><div data-percentage="16" class="bar"></div><span>Medical Treatment</span></li>
+    <li><div data-percentage="16" class="bar"></div><span>Nursing & Care</span></li>
+    <li><div data-percentage="20" class="bar"></div><span>Food & Beverages</span></li>
+    <li><div data-percentage="16" class="bar"></div><span>Maintenance</span></li>
+    </li>
+  </ul>
+  <div class="clear-div"></div> 
+</div>
+
+<div id="footer-section">
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot activated"></span>
+</div>
+</div>
+</body>
+</html>
